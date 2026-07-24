@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: iwueseter-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: iwueseter_user
+      POSTGRES_PASSWORD: iwueseter_password
+      POSTGRES_DB: iwueseter_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

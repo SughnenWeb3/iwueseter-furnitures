@@ -1,0 +1,160 @@
+.footer {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding-top: 80px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 2px;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.logoSub {
+  font-family: var(--font-fine);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 300px;
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.socialLink:hover {
+  border-color: var(--color-gold-border);
+  color: var(--color-gold);
+  background: var(--color-gold-muted);
+}
+
+/* Link Groups */
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linkGroup h3 {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.linkGroup ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkGroup ul li,
+.linkGroup ul li a {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+  line-height: 1.5;
+}
+
+.linkGroup ul li a:hover {
+  color: var(--color-gold);
+}
+
+/* Bottom */
+.bottom {
+  border-top: 1px solid var(--color-border);
+  padding: 24px 0;
+}
+
+.bottom > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bottom span {
+  font-family: var(--font-fine);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .brand {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .brand {
+    flex-direction: column;
+  }
+}
