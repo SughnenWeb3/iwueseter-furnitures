@@ -32,7 +32,6 @@ async function getDashboardData() {
       recentEnquiries: recentEnquiries.map(e => ({
         ...e,
         createdAt: e.createdAt.toISOString(),
-        updatedAt: e.updatedAt.toISOString(),
       })),
       recentProducts: recentProducts.map(p => ({
         ...p,
