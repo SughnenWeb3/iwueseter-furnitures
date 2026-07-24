@@ -29,7 +29,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
   type ProductWithCategory = Awaited<ReturnType<typeof prisma.product.findUnique>> & {
     category: { id: string; name: string; slug: string; createdAt: Date } | null;
   };
-  type RelatedProduct = Awaited<ReturnType<typeof prisma.product.findMany>>[number];
+  type RelatedProduct = Awaited<ReturnType<typeof prisma.product.findMany>>[number] & {
+    category?: { id: string; name: string; slug: string; createdAt: Date } | null;
+  };
 
   let product: ProductWithCategory | null = null;
   let related: RelatedProduct[] = [];

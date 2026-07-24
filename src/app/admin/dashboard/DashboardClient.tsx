@@ -11,7 +11,7 @@ interface Enquiry {
   phone: string | null;
   message: string;
   status: string;
-  createdAt: Date;
+  createdAt: Date | string;
 }
 
 interface Product {
@@ -20,7 +20,7 @@ interface Product {
   price: unknown;
   images: string[];
   category: { name: string } | null;
-  createdAt: Date;
+  createdAt: Date | string;
 }
 
 interface DashboardData {
@@ -48,7 +48,7 @@ function formatPrice(price: unknown): string {
   }).format(n);
 }
 
-function timeAgo(date: Date): string {
+function timeAgo(date: Date | string): string {
   const d = new Date(date);
   const diff = Math.floor((Date.now() - d.getTime()) / 1000);
   if (diff < 60) return "just now";
