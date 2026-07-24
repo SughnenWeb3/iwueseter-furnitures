@@ -1,12 +1,14 @@
-import NextAuth from "next-auth";
-import { authConfig } from "./auth.config";
+import { withAuth } from "next-auth/middleware";
 
-const { auth } = NextAuth(authConfig);
+const authMiddleware = withAuth({
+  pages: {
+    signIn: "/admin/login",
+  },
+});
 
-// Next.js 16 requires the function to be exported as "proxy"
-export { auth as proxy };
+export default authMiddleware;
+export { authMiddleware as proxy };
 
 export const config = {
-  // Apply proxy to all routes except API, static assets, etc.
-  matcher: ["/((?!api|_next/static|_next/image|.*\\.png$|.*\\.ico$).*)" ],
+  matcher: ["/admin/dashboard/:path*"],
 };
