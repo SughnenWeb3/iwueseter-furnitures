@@ -1,39 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
   /* Colour Palette */
-  --color-bg-primary:     #050505;
-  --color-bg-secondary:   #0d0d0d;
-  --color-bg-card:        #141414;
-  --color-bg-card-hover:  #1b1b1b;
-  --color-bg-overlay:     rgba(5, 5, 5, 0.85);
+  --color-bg-primary:     #f5f3ef;
+  --color-bg-secondary:   #ece9e2;
+  --color-bg-card:        #fbfaf7;
+  --color-bg-card-hover:  #ffffff;
+  --color-bg-overlay:     rgba(29, 31, 29, 0.88);
 
-  --color-gold:           #d4af37; /* Pure metallic gold */
-  --color-gold-light:     #f3e5ab; /* Bright champagne gold */
-  --color-gold-dark:      #aa820a;
-  --color-gold-muted:     rgba(212, 175, 55, 0.1);
-  --color-gold-border:    rgba(212, 175, 55, 0.3);
+  --color-gold:           #9b5d3d;
+  --color-gold-light:     #c9855e;
+  --color-gold-dark:      #77432b;
+  --color-gold-muted:     rgba(155, 93, 61, 0.10);
+  --color-gold-border:    rgba(155, 93, 61, 0.28);
 
-  --color-text-primary:   #ffffff; /* Sharp crisp white */
-  --color-text-secondary: #dcdcdc; /* Clear silver-gray */
-  --color-text-muted:     #888888;
-  --color-text-accent:    #d4af37;
+  --color-text-primary:   #1d1f1d;
+  --color-text-secondary: #5e625d;
+  --color-text-muted:     #858981;
+  --color-text-accent:    #9b5d3d;
 
-  --color-border:         rgba(255, 255, 255, 0.08);
-  --color-border-hover:   rgba(212, 175, 55, 0.4);
+  --color-border:         rgba(29, 31, 29, 0.12);
+  --color-border-hover:   rgba(29, 31, 29, 0.34);
 
-  /* Typography — PT Serif provides a warm, confident editorial character */
-  --font-display: 'PT Serif', Georgia, serif;
-  --font-body:    'PT Serif', Georgia, serif;
-  --font-fine:    'PT Serif', Georgia, serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body:    'DM Sans', Arial, sans-serif;
+  --font-fine:    'DM Mono', monospace;
 
   /* Spacing */
-  --nav-height: 84px;
+  --nav-height: 76px;
 
   /* Shadows */
-  --shadow-card:       0 4px 28px rgba(0, 0, 0, 0.45);
-  --shadow-card-hover: 0 14px 52px rgba(0, 0, 0, 0.65);
-  --shadow-gold:       0 0 36px rgba(200, 164, 90, 0.18);
+  --shadow-card:       0 8px 24px rgba(29, 31, 29, 0.06);
+  --shadow-card-hover: 0 18px 35px rgba(29, 31, 29, 0.12);
+  --shadow-gold:       0 10px 24px rgba(155, 93, 61, 0.16);
 
   /* Transitions */
   --transition-smooth: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
@@ -52,8 +51,8 @@ html, body { max-width: 100vw; overflow-x: hidden; }
 body {
   min-height: 100%;
   font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--color-text-primary);
   background: var(--color-bg-primary);
   -webkit-font-smoothing: antialiased;
@@ -100,12 +99,12 @@ img { max-width: 100%; height: auto; }
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 14px 34px;
-  border-radius: 1px;
+  padding: 13px 22px;
+  border-radius: 999px;
   font-family: var(--font-fine);
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: var(--transition-smooth);
   cursor: pointer;
@@ -114,12 +113,12 @@ img { max-width: 100%; height: auto; }
 
 .btn-primary {
   background: var(--color-gold);
-  color: #0d0b08;
+  color: #fff;
   border: 1px solid var(--color-gold);
 }
 .btn-primary:hover {
-  background: var(--color-gold-light);
-  border-color: var(--color-gold-light);
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
   box-shadow: var(--shadow-gold);
   transform: translateY(-2px);
 }
@@ -127,7 +126,7 @@ img { max-width: 100%; height: auto; }
 .btn-outline {
   background: transparent;
   color: var(--color-text-primary);
-  border: 1px solid rgba(242, 237, 228, 0.3);
+  border: 1px solid currentColor;
 }
 .btn-outline:hover {
   border-color: var(--color-gold);
@@ -148,7 +147,7 @@ img { max-width: 100%; height: auto; }
 .card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: 2px;
+  border-radius: 10px;
   overflow: hidden;
   transition: var(--transition-smooth);
 }
@@ -176,10 +175,10 @@ img { max-width: 100%; height: auto; }
   padding: 13px 18px;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  border-radius: 1px;
+  border-radius: 8px;
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   transition: var(--transition-smooth);
   outline: none;
   appearance: none;

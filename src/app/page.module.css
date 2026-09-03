@@ -1,20 +1,20 @@
 /* ══════════════ PHILOSOPHY ══════════════ */
 .philosophy {
-  padding: 120px 0;
+  padding: 112px 0;
   background: var(--color-bg-secondary);
 }
 
 .philosophyInner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: clamp(48px, 7vw, 100px);
   align-items: center;
 }
 
 .philosophyImage {
   position: relative;
   aspect-ratio: 4/5;
-  border-radius: 2px;
+  border-radius: 14px;
   overflow: hidden;
 }
 
@@ -24,7 +24,7 @@
   position: absolute;
   inset: -14px -14px 14px 14px;
   border: 1px solid var(--color-gold-border);
-  border-radius: 2px;
+  border-radius: 14px;
   z-index: -1;
 }
 
@@ -45,7 +45,7 @@
 
 .philosophyHeading em {
   font-style: italic;
-  color: var(--color-gold-light);
+  color: var(--color-gold);
 }
 
 .philosophyText p {
@@ -80,19 +80,19 @@
 
 /* ══════════════ CATEGORIES ══════════════ */
 .categoriesSection {
-  padding: 100px 0;
+  padding: 112px 0;
   background: var(--color-bg-primary);
 }
 
 .categoriesGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 16px;
 }
 
 .categoryCard {
   display: block;
-  border-radius: 2px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--color-border);
   transition: var(--transition-smooth);
@@ -141,7 +141,7 @@
   font-family: var(--font-display);
   font-size: 21px;
   font-weight: 400;
-  color: var(--color-text-primary);
+  color: #fff;
   letter-spacing: 0.01em;
 }
 
@@ -151,12 +151,12 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: #f0c7a7;
 }
 
 /* ══════════════ FEATURED PRODUCTS ══════════════ */
 .productsSection {
-  padding: 100px 0;
+  padding: 112px 0;
   background: var(--color-bg-secondary);
 }
 
@@ -275,20 +275,19 @@
   font-size: clamp(40px, 6.5vw, 78px);
   font-weight: 400;
   line-height: 1.12;
-  color: var(--color-text-primary);
+  color: #fff;
   letter-spacing: 0.01em;
 }
 
 .ctaTitle em {
   font-style: italic;
-  color: var(--color-gold-light);
+  color: #f0c7a7;
 }
 
 .ctaBannerContent p {
   font-family: var(--font-body);
   font-size: 18px;
-  font-style: italic;
-  color: rgba(242, 237, 228, 0.72);
+  color: rgba(255, 255, 255, 0.76);
   max-width: 480px;
   line-height: 1.8;
 }
