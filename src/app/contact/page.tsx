@@ -86,11 +86,30 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3>Phone &amp; WhatsApp</h3>
-                  <p>+234 800 000 0000</p>
+                  <h3>Phone</h3>
+                  <p>+234 813 635 1852</p>
                   <p>Mon – Sat: 9am – 6pm WAT</p>
                 </div>
               </div>
+
+              <a
+                href="https://wa.me/2348136351852?text=Hello!%20I'm%20interested%20in%20your%20furniture."
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.infoCard}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+              >
+                <div className={styles.infoIcon} style={{ background: "rgba(37,211,102,0.12)", color: "#25D366" }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
+                    <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.737 5.469 2.027 7.77L0 32l8.468-2.004A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm7.307 19.347c-.4-.2-2.368-1.168-2.735-1.302-.367-.133-.634-.2-.9.2-.267.4-1.034 1.302-1.268 1.568-.233.267-.467.3-.867.1-.4-.2-1.688-.622-3.215-1.984-1.188-1.06-1.99-2.369-2.223-2.769-.233-.4-.025-.616.175-.815.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.9-2.168-1.234-2.968-.325-.78-.656-.674-.9-.686l-.767-.013c-.267 0-.7.1-1.067.5-.367.4-1.4 1.368-1.4 3.334s1.433 3.868 1.633 4.134c.2.267 2.82 4.302 6.832 6.034.955.412 1.7.658 2.281.843.958.305 1.831.262 2.52.159.769-.114 2.368-.968 2.701-1.902.333-.934.333-1.734.233-1.902-.1-.167-.367-.267-.767-.467z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style={{ color: "#25D366" }}>Chat on WhatsApp</h3>
+                  <p>+234 813 635 1852</p>
+                  <p>Click to start a conversation</p>
+                </div>
+              </a>
 
               <div className={styles.infoCard}>
                 <div className={styles.infoIcon}>
