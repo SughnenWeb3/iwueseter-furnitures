@@ -142,7 +142,7 @@ export default function HeroSlider() {
             <Link href="/products" className="btn btn-primary">
               Explore Collection
             </Link>
-            <Link href="/contact" className="btn btn-outline">
+            <Link href="/contact" className="btn btn-outline-white">
               Request Bespoke Order
             </Link>
           </div>

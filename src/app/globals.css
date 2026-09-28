@@ -134,6 +134,19 @@ img { max-width: 100%; height: auto; }
   transform: translateY(-2px);
 }
 
+/* White outline variant — for use on dark/image backgrounds */
+.btn-outline-white {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.70);
+}
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 .btn-ghost {
   background: transparent;
   color: var(--color-gold);
