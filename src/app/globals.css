@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+/* Times New Roman is a system font — no external import needed */
 
 :root {
   /* Colour Palette */
@@ -22,9 +22,9 @@
   --color-border:         rgba(29, 31, 29, 0.12);
   --color-border-hover:   rgba(29, 31, 29, 0.34);
 
-  --font-display: 'Libre Baskerville', Georgia, serif;
-  --font-body:    'DM Sans', Arial, sans-serif;
-  --font-fine:    'DM Mono', monospace;
+  --font-display: 'Times New Roman', Times, serif;
+  --font-body:    'Times New Roman', Times, serif;
+  --font-fine:    'Times New Roman', Times, serif;
 
   /* Spacing */
   --nav-height: 76px;
