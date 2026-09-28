@@ -16,24 +16,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isTransparent = pathname === "/" && !scrolled;
-
   const links = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Collection" },
     { href: "/contact", label: "Contact" },
-  
   ];
 
   return (
-    <nav
-      className={`${styles.nav} ${scrolled ? styles.scrolled : ""} ${
-        isTransparent ? styles.transparent : ""
-      }`}
-    >
+    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`container ${styles.inner}`}>
+
         {/* Logo */}
         <Link href="/" className={styles.logo}>
+          <span className={styles.logoMark}>IF</span>
           <span className={styles.logoText}>Iwueseter Furniture</span>
         </Link>
 
@@ -51,21 +46,20 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* CTA + Hamburger */}
         <div className={styles.cta}>
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/contact" className={styles.ctaBtn}>
             Request Quote
           </Link>
-          {/* Hamburger */}
           <button
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
-            id="mobile-menu-toggle"
+            aria-expanded={menuOpen}
           >
-            <span className={`${styles.bar} ${menuOpen ? styles.open : ""}`} />
-            <span className={`${styles.bar} ${menuOpen ? styles.open : ""}`} />
-            <span className={`${styles.bar} ${menuOpen ? styles.open : ""}`} />
+            <span className={styles.bar} />
+            <span className={styles.bar} />
+            <span className={styles.bar} />
           </button>
         </div>
       </div>
@@ -82,7 +76,11 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        <Link href="/contact" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+        <Link
+          href="/contact"
+          className={`${styles.ctaBtn} ${styles.mobileCta}`}
+          onClick={() => setMenuOpen(false)}
+        >
           Request Quote
         </Link>
       </div>

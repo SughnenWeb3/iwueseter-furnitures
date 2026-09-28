@@ -1,3 +1,4 @@
+/* ─── Nav shell ──────────────────────────────────────── */
 .nav {
   position: fixed;
   top: 0;
@@ -5,31 +6,32 @@
   right: 0;
   z-index: 100;
   height: var(--nav-height);
-  background: #03045E;
-  border-bottom: 1px solid rgba(0, 119, 182, 0.40);
+  /* Gradient blends from deep navy into the hero overlay beneath */
+  background: linear-gradient(180deg, rgba(3, 4, 94, 0.98) 0%, rgba(3, 4, 80, 0.95) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(0, 180, 216, 0.18);
   transition: var(--transition-smooth);
 }
 
-.nav.transparent {
-  background: #03045E;
-  border-bottom-color: rgba(0, 119, 182, 0.40);
+/* Thin accent line at very top */
+.nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #03045E, #0077B6, #00B4D8, #0077B6, #03045E);
 }
-
-.transparent .logoText,
-.transparent .link {
-  color: #CAF0F8;
-}
-
-.transparent .logoSub { color: #90E0EF; }
-.transparent .link::after { background: #CAF0F8; }
-.transparent .bar { background: #CAF0F8; }
 
 .nav.scrolled {
-  background: #03045E;
-  border-bottom-color: rgba(0, 119, 182, 0.40);
-  box-shadow: 0 3px 18px rgba(3, 4, 94, 0.30);
+  background: rgba(3, 4, 94, 0.99);
+  box-shadow: 0 4px 32px rgba(3, 4, 94, 0.45);
+  border-bottom-color: rgba(0, 180, 216, 0.25);
 }
 
+/* ─── Inner layout ───────────────────────────────────── */
 .inner {
   display: flex;
   align-items: center;
@@ -37,153 +39,177 @@
   height: 100%;
 }
 
-/* Logo */
+/* ─── Logo ───────────────────────────────────────────── */
 .logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1;
-  gap: 1px;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+/* Small decorative mark left of the brand name */
+.logoMark {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0077B6, #00B4D8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.04em;
 }
 
 .logoText {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: #CAF0F8;
-  letter-spacing: -0.035em;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
-.logoSub {
-  font-family: var(--font-fine);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #90E0EF;
-}
-
-/* Links */
+/* ─── Desktop links ──────────────────────────────────── */
 .links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 8px;
   list-style: none;
 }
 
 .link {
-  font-family: var(--font-fine);
-  font-size: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #90E0EF;
+  letter-spacing: 0.01em;
+  color: rgba(202, 240, 248, 0.80);
   transition: var(--transition-smooth);
   position: relative;
-  padding-bottom: 4px;
-}
-
-.link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #CAF0F8;
-  transition: width 0.3s ease;
+  padding: 6px 14px;
+  border-radius: 6px;
 }
 
 .link:hover {
-  color: #CAF0F8;
-}
-
-.link:hover::after,
-.link.active::after {
-  width: 100%;
+  color: #ffffff;
+  background: rgba(0, 180, 216, 0.12);
 }
 
 .link.active {
-  color: #CAF0F8;
+  color: #ffffff;
+  background: rgba(0, 119, 182, 0.20);
 }
 
-/* CTA */
+/* Active indicator dot */
+.link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00B4D8;
+}
+
+/* ─── CTA area ───────────────────────────────────────── */
 .cta {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
-/* Hamburger */
+.ctaBtn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0077B6, #00B4D8);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  background: linear-gradient(135deg, #005f91, #0099b8);
+  box-shadow: 0 4px 18px rgba(0, 180, 216, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ─── Hamburger ──────────────────────────────────────── */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
+  padding: 6px;
+  background: rgba(0, 180, 216, 0.10);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  border-radius: 7px;
 }
 
 .bar {
   display: block;
-  width: 24px;
-  height: 1.5px;
+  width: 22px;
+  height: 2px;
   background: #CAF0F8;
   transition: var(--transition-smooth);
-  transform-origin: center;
+  border-radius: 2px;
 }
 
-/* Mobile Menu */
+/* ─── Mobile menu ────────────────────────────────────── */
 .mobileMenu {
   display: none;
   flex-direction: column;
-  gap: 8px;
-  padding: 24px 20px;
-  background: #03045E;
-  border-top: 1px solid rgba(0, 119, 182, 0.40);
+  background: rgba(3, 4, 94, 0.98);
+  border-top: 1px solid rgba(0, 180, 216, 0.20);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0 20px;
 }
 
 .mobileMenu.mobileOpen {
-  max-height: 400px;
-  padding: 24px 20px;
+  max-height: 420px;
+  padding: 16px 20px 24px;
 }
 
 .mobileLink {
-  font-family: var(--font-fine);
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #90E0EF;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0, 119, 182, 0.30);
+  color: rgba(202, 240, 248, 0.80);
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(0, 180, 216, 0.12);
   transition: var(--transition-smooth);
+  display: block;
 }
 
 .mobileLink:hover,
 .mobileLink.mobileActive {
-  color: #CAF0F8;
+  color: #ffffff;
+  padding-left: 8px;
 }
 
+.mobileCta {
+  margin-top: 16px;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 900px) {
-  .links {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .cta .btn {
-    display: none;
-  }
-
-  .mobileMenu {
-    display: flex;
-  }
+  .links { display: none; }
+  .hamburger { display: flex; }
+  .ctaBtn { display: none; }
+  .mobileMenu { display: flex; }
 }
