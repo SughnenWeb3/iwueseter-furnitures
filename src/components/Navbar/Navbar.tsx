@@ -35,7 +35,6 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className={styles.logo}>
           <span className={styles.logoText}>Iwueseter Furniture</span>
-          <span className={styles.logoSub}>Master Carpenter</span>
         </Link>
 
         {/* Desktop Nav */}
