@@ -73,10 +73,45 @@ export default function ContactPage() {
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                 </div>
-                <div>
+                <div style={{ flex: 1 }}>
                   <h3>Visit Our Showroom</h3>
-                  <p>Akaajime<br/>Gboko, Benue State, Nigeria</p>
+                  <p>Akaajime, Gboko<br/>Benue State, Nigeria</p>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Akaajime,Gboko,Benue+State,Nigeria"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      marginTop: 10,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "var(--color-gold)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Get Directions →
+                  </a>
                 </div>
+              </div>
+
+              {/* Google Maps embed */}
+              <div className={styles.mapWrapper}>
+                <iframe
+                  title="Iwueseter Furniture Showroom Location"
+                  src="https://maps.google.com/maps?q=Akaajime,Gboko,Benue+State,Nigeria&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0, borderRadius: 8, display: "block" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
 
               <div className={styles.infoCard}>

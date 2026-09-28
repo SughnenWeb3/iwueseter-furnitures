@@ -95,6 +95,13 @@
   padding: 24px;
 }
 
+.mapWrapper {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
 .customNote p {
   font-size: 14px;
   color: var(--color-text-secondary);
