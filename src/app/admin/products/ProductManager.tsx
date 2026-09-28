@@ -17,6 +17,7 @@ const emptyDraft = (categoryId = ""): Draft => ({ title: "", description: "", pr
 export default function ProductManager({ products: initialProducts, categories, user }: { products: Product[]; categories: Category[]; user: { name?: string | null; email?: string | null } }) {
   const [products, setProducts] = useState(initialProducts);
   const [editing, setEditing] = useState<Product | null>(null);
+  const [creating, setCreating] = useState(false);
   const [draft, setDraft] = useState<Draft>(() => emptyDraft(categories[0]?.id));
   const [imageInput, setImageInput] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -25,9 +26,9 @@ export default function ProductManager({ products: initialProducts, categories, 
   const [query, setQuery] = useState("");
   const filteredProducts = useMemo(() => products.filter((product) => product.title.toLowerCase().includes(query.toLowerCase())), [products, query]);
 
-  const openCreate = () => { setEditing(null); setDraft(emptyDraft(categories[0]?.id)); setImageInput(""); setMessage(""); };
-  const openEdit = (product: Product) => { setEditing(product); setDraft({ title: product.title, description: product.description, price: product.price, dimensions: product.dimensions || "", material: product.material || "", images: product.images, categoryId: product.categoryId }); setImageInput(""); setMessage(""); };
-  const closeEditor = () => { setEditing(null); setDraft(emptyDraft(categories[0]?.id)); setImageInput(""); setMessage(""); };
+  const openCreate = () => { setEditing(null); setCreating(true); setDraft(emptyDraft(categories[0]?.id)); setImageInput(""); setMessage(""); };
+  const openEdit = (product: Product) => { setCreating(false); setEditing(product); setDraft({ title: product.title, description: product.description, price: product.price, dimensions: product.dimensions || "", material: product.material || "", images: product.images, categoryId: product.categoryId }); setImageInput(""); setMessage(""); };
+  const closeEditor = () => { setEditing(null); setCreating(false); setDraft(emptyDraft(categories[0]?.id)); setImageInput(""); setMessage(""); };
 
   async function saveProduct(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); setSaving(true); setMessage("");
@@ -62,7 +63,7 @@ export default function ProductManager({ products: initialProducts, categories, 
       setMessage("Could not upload the images. Please check your connection and try again.");
     } finally { setUploading(false); }
   }
-  const editorOpen = editing !== null || draft.title !== "" || draft.description !== "";
+  const editorOpen = editing !== null || creating;
 
   return <div className={styles.layout}>
     <aside className={styles.sidebar}>
