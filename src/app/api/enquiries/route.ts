@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { sendContactEmails } from "@/lib/mailer";
 
 export async function POST(request: Request) {
   try {
@@ -31,6 +32,15 @@ export async function POST(request: Request) {
         message: message.trim(),
         status: "PENDING",
       },
+    });
+
+    // Send emails — non-blocking, won't fail the request if email errors
+    sendContactEmails({
+      name: enquiry.name,
+      email: enquiry.email,
+      phone: enquiry.phone,
+      message: enquiry.message,
+      enquiryId: enquiry.id,
     });
 
     return NextResponse.json(
