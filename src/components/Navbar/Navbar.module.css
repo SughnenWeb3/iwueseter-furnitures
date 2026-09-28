@@ -120,7 +120,88 @@
 .cta {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+}
+
+/* ─── Desktop search ─────────────────────────────────── */
+.searchForm {
+  display: flex;
+  align-items: center;
+  width: 36px;
+  overflow: hidden;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.2s ease,
+              border-color 0.2s ease;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.searchForm.searchOpen {
+  width: 220px;
+  background: rgba(0, 180, 216, 0.10);
+  border-color: rgba(0, 180, 216, 0.40);
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 7px 10px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  /* Remove browser default search cancel button */
+  -webkit-appearance: none;
+}
+
+.searchInput::-webkit-search-cancel-button { display: none; }
+
+.searchForm.searchOpen .searchInput {
+  opacity: 1;
+}
+
+.searchInput::placeholder { color: rgba(202, 240, 248, 0.55); }
+
+.searchSubmit {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #CAF0F8;
+  padding: 0 10px 0 4px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.searchSubmit:hover { color: #ffffff; }
+
+/* Search toggle icon button */
+.searchToggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 180, 216, 0.10);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  color: #CAF0F8;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.searchToggle:hover,
+.searchToggleActive {
+  background: rgba(0, 180, 216, 0.22);
+  border-color: rgba(0, 180, 216, 0.55);
+  color: #ffffff;
 }
 
 .ctaBtn {
@@ -205,6 +286,45 @@
 .mobileCta {
   margin-top: 16px;
 }
+
+/* ─── Mobile search ──────────────────────────────────── */
+.mobileSearchForm {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 180, 216, 0.10);
+  border: 1px solid rgba(0, 180, 216, 0.30);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.mobileSearchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 11px 14px;
+  -webkit-appearance: none;
+}
+
+.mobileSearchInput::-webkit-search-cancel-button { display: none; }
+.mobileSearchInput::placeholder { color: rgba(202, 240, 248, 0.50); }
+
+.mobileSearchBtn {
+  background: none;
+  border: none;
+  color: #CAF0F8;
+  padding: 0 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.mobileSearchBtn:hover { color: #ffffff; }
 
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 900px) {
