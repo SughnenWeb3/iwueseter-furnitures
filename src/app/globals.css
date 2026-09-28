@@ -1,26 +1,26 @@
 /* Times New Roman is a system font — no external import needed */
 
 :root {
-  /* Colour Palette */
-  --color-bg-primary:     #f5f3ef;
-  --color-bg-secondary:   #ece9e2;
-  --color-bg-card:        #fbfaf7;
+  /* Colour Palette — Blue (03045E · 0077B6 · 00B4D8 · 90E0EF · CAF0F8) */
+  --color-bg-primary:     #CAF0F8;
+  --color-bg-secondary:   #90E0EF;
+  --color-bg-card:        #e8f8fd;
   --color-bg-card-hover:  #ffffff;
-  --color-bg-overlay:     rgba(29, 31, 29, 0.88);
+  --color-bg-overlay:     rgba(3, 4, 94, 0.88);
 
-  --color-gold:           #9b5d3d;
-  --color-gold-light:     #c9855e;
-  --color-gold-dark:      #77432b;
-  --color-gold-muted:     rgba(155, 93, 61, 0.10);
-  --color-gold-border:    rgba(155, 93, 61, 0.28);
+  --color-gold:           #0077B6;
+  --color-gold-light:     #00B4D8;
+  --color-gold-dark:      #03045E;
+  --color-gold-muted:     rgba(0, 119, 182, 0.10);
+  --color-gold-border:    rgba(0, 119, 182, 0.28);
 
-  --color-text-primary:   #1d1f1d;
-  --color-text-secondary: #5e625d;
-  --color-text-muted:     #858981;
-  --color-text-accent:    #9b5d3d;
+  --color-text-primary:   #03045E;
+  --color-text-secondary: #0077B6;
+  --color-text-muted:     #00B4D8;
+  --color-text-accent:    #0077B6;
 
-  --color-border:         rgba(29, 31, 29, 0.12);
-  --color-border-hover:   rgba(29, 31, 29, 0.34);
+  --color-border:         rgba(3, 4, 94, 0.12);
+  --color-border-hover:   rgba(3, 4, 94, 0.34);
 
   --font-display: 'Times New Roman', Times, serif;
   --font-body:    'Times New Roman', Times, serif;
@@ -30,9 +30,9 @@
   --nav-height: 76px;
 
   /* Shadows */
-  --shadow-card:       0 8px 24px rgba(29, 31, 29, 0.06);
-  --shadow-card-hover: 0 18px 35px rgba(29, 31, 29, 0.12);
-  --shadow-gold:       0 10px 24px rgba(155, 93, 61, 0.16);
+  --shadow-card:       0 8px 24px rgba(3, 4, 94, 0.08);
+  --shadow-card-hover: 0 18px 35px rgba(3, 4, 94, 0.16);
+  --shadow-gold:       0 10px 24px rgba(0, 119, 182, 0.22);
 
   /* Transitions */
   --transition-smooth: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
