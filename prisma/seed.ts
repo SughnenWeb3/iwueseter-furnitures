@@ -35,9 +35,7 @@ async function main() {
 
   const admin = await prisma.user.upsert({
     where: { email: adminEmail },
-    update: {
-      passwordHash: hashedPassword,
-    },
+    update: {},
     create: {
       email: adminEmail,
       name: "Admin Terhemba",
@@ -211,26 +209,37 @@ async function main() {
     },
   ];
 
-  // Clean old seeded products to prevent duplicates on multiple runs
-  await prisma.product.deleteMany({});
-  console.log("Cleared existing products.");
-
   for (const prod of productsData) {
     const category = categories.find((c) => c.slug === prod.categorySlug);
     if (!category) continue;
 
-    await prisma.product.create({
-      data: {
-        title: prod.title,
-        description: prod.description,
-        price: prod.price,
-        dimensions: prod.dimensions,
-        material: prod.material,
-        images: prod.images,
-        categoryId: category.id,
-      },
+    const productData = {
+      description: prod.description,
+      price: prod.price,
+      dimensions: prod.dimensions,
+      material: prod.material,
+      images: prod.images,
+      categoryId: category.id,
+    };
+    const existingProduct = await prisma.product.findFirst({
+      where: { title: prod.title },
     });
-    console.log(`Seeded product: ${prod.title}`);
+
+    if (existingProduct) {
+      await prisma.product.update({
+        where: { id: existingProduct.id },
+        data: productData,
+      });
+      console.log(`Updated seeded product: ${prod.title}`);
+    } else {
+      await prisma.product.create({
+        data: {
+          title: prod.title,
+          ...productData,
+        },
+      });
+      console.log(`Seeded product: ${prod.title}`);
+    }
   }
 }
 
