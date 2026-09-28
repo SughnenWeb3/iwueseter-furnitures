@@ -52,9 +52,9 @@
   /* Deep navy wash from left, fades right */
   background: linear-gradient(
     105deg,
-    rgba(3, 4, 94, 0.88) 0%,
-    rgba(3, 4, 94, 0.60) 50%,
-    rgba(3, 4, 94, 0.42) 100%
+    rgba(3, 4, 94, 0.62) 0%,
+    rgba(3, 4, 94, 0.38) 50%,
+    rgba(3, 4, 94, 0.22) 100%
   );
   z-index: 1;
 }
@@ -65,7 +65,7 @@
   left: 0;
   right: 0;
   height: 45%;
-  background: linear-gradient(to top, rgba(3, 4, 94, 0.85), transparent);
+  background: linear-gradient(to top, rgba(3, 4, 94, 0.60), transparent);
   z-index: 1;
 }
 
