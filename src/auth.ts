@@ -1,4 +1,4 @@
-import NextAuth, { getServerSession, NextAuthOptions } from "next-auth";
+import NextAuth, { getServerSession, type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
@@ -22,16 +22,17 @@ export const authOptions: NextAuthOptions = {
         });
         if (!user) return null;
 
-        const passwordsMatch = await bcrypt.compare(credentials.password, user.passwordHash);
-        if (passwordsMatch) {
-          return {
-            id: user.id,
-            email: user.email,
-            name: user.name,
-          };
-        }
+        const passwordsMatch = await bcrypt.compare(
+          credentials.password,
+          user.passwordHash
+        );
+        if (!passwordsMatch) return null;
 
-        return null;
+        return {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+        };
       },
     }),
   ],
@@ -53,9 +54,8 @@ export const authOptions: NextAuthOptions = {
 
 const handler = NextAuth(authOptions);
 
-export const handlers = {
-  GET: handler,
-  POST: handler,
-};
+// v4-style route exports for app/api/auth/[...nextauth]/route.ts
+export { handler as GET, handler as POST };
 
+// Server-side session helper
 export const auth = () => getServerSession(authOptions);

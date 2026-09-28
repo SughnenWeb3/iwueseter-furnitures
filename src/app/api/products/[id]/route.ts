@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { Prisma } from "@/generated/client/client";
 
 export async function GET(
   request: Request,
@@ -41,12 +42,24 @@ export async function PUT(
     const { id } = await params;
     const body = await request.json();
 
+    // Validate price if provided
+    let price: number | null = null;
+    if (body.price !== undefined && body.price !== null && body.price !== "") {
+      price = parseFloat(body.price);
+      if (isNaN(price) || price < 0) {
+        return NextResponse.json(
+          { error: "Price must be a valid non-negative number" },
+          { status: 400 }
+        );
+      }
+    }
+
     const product = await prisma.product.update({
       where: { id },
       data: {
         title: body.title,
         description: body.description,
-        price: body.price ? parseFloat(body.price) : null,
+        price,
         dimensions: body.dimensions || null,
         material: body.material || null,
         images: body.images || [],
@@ -57,6 +70,12 @@ export async function PUT(
 
     return NextResponse.json(product);
   } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
+    ) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
     console.error("Error updating product:", error);
     return NextResponse.json(
       { error: "Failed to update product" },
@@ -81,6 +100,12 @@ export async function DELETE(
 
     return NextResponse.json({ message: "Product deleted" });
   } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
+    ) {
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    }
     console.error("Error deleting product:", error);
     return NextResponse.json(
       { error: "Failed to delete product" },

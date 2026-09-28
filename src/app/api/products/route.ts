@@ -54,11 +54,23 @@ export async function POST(request: Request) {
       );
     }
 
+    // Validate price if provided
+    let parsedPrice: number | null = null;
+    if (price !== undefined && price !== null && price !== "") {
+      parsedPrice = parseFloat(price);
+      if (isNaN(parsedPrice) || parsedPrice < 0) {
+        return NextResponse.json(
+          { error: "Price must be a valid non-negative number" },
+          { status: 400 }
+        );
+      }
+    }
+
     const product = await prisma.product.create({
       data: {
         title,
         description,
-        price: price ? parseFloat(price) : null,
+        price: parsedPrice,
         dimensions: dimensions || null,
         material: material || null,
         images: images || [],

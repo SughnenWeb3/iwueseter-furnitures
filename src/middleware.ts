@@ -7,7 +7,6 @@ const authMiddleware = withAuth({
 });
 
 export default authMiddleware;
-export { authMiddleware as proxy };
 
 export const config = {
   matcher: ["/admin/dashboard/:path*"],
