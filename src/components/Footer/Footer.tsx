@@ -32,7 +32,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://wa.me/234800000000"
+              href="https://wa.me/2348136351852"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -68,10 +68,10 @@ export default function Footer() {
         <div className={styles.linkGroup}>
           <h3 className="label-caps">Contact</h3>
           <ul>
-            <li>Abuja, Nigeria</li>
-            <li>desmond@iorfafurniture.com</li>
-            <li>+234 803 000 0000</li>
-            <li>Mon – Sat: 8am – 6pm</li>
+            <li>Akaajime, Gboko, Benue State</li>
+            <li>sughnenterhemba@gmail.com</li>
+            <li>+234 813 635 1852</li>
+            <li>Mon – Sat: 9am – 6pm WAT</li>
           </ul>
         </div>
       </div>
